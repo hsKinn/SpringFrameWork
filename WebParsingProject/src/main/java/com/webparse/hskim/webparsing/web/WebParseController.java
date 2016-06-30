@@ -10,7 +10,9 @@ import com.webparse.hskim.webparsing.service.WebParseService;
 @Controller
 public class WebParseController {
 
+	// WebParseService DI Setter
 	private WebParseService webParseService;
+	
 	public void setWebParseService(WebParseService webParseService) {
 		this.webParseService = webParseService;
 	}

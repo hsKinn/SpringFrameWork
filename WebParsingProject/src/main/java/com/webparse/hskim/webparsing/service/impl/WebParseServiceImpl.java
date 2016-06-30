@@ -20,7 +20,7 @@ import com.webparse.hskim.webparsing.vo.WebParseVO;
 
 public class WebParseServiceImpl implements WebParseService{
 	
-	// Index Class DI
+	// Indexer Class DI Setter
 	private Indexer indexer;
 	
 	public void setIndexer(Indexer indexer) {
@@ -28,7 +28,7 @@ public class WebParseServiceImpl implements WebParseService{
 	}
 
 
-	// Search Class DI
+	// Searcher Class DI Setter
 	private Searcher searcher;
 	
 	public void setSearcher(Searcher searcher) {
@@ -37,9 +37,7 @@ public class WebParseServiceImpl implements WebParseService{
 
 
 	/**
-	 * Get Web Parsing Data
-	 * 
-	 * @author hskim
+	 * 웹 파싱, 추출, 인덱싱 처리
 	 */
 	@Override
 	public ModelAndView getWebParsingDatas() {
@@ -66,11 +64,10 @@ public class WebParseServiceImpl implements WebParseService{
 	
 	
 	/**
-	 * Get WEB Parsing Datas
+	 * 지정된 Web에서 정보들을 Parsing
 	 * 
 	 * From http://www.alexa.com/topsites/global;0 ~ 19 Page
 	 * 
-	 * @author hskim
 	 * @return Page Data List
 	 */
 	public List<WebParseVO> getDatas() {
@@ -115,9 +112,8 @@ public class WebParseServiceImpl implements WebParseService{
 	
 	
 	/**
-	 * Create TXT File 
+	 * Parsing 한 데이터들을 txt 파일로 생성
 	 * 
-	 * @author hskim
 	 * @param datas
 	 */
 	public void createTXTFile(List<WebParseVO> datas) {
@@ -148,7 +144,6 @@ public class WebParseServiceImpl implements WebParseService{
 	/**
 	 * 키워드를 받아와 Index된 폴더에서 검색 후 
 	 * 검색된 데이터를 리턴
-	 * 
 	 */
 	@Override
 	public ModelAndView getSearchingDatas(String keyword) {
@@ -174,6 +169,5 @@ public class WebParseServiceImpl implements WebParseService{
 		
 		return view;
 	}
-	
 
 }

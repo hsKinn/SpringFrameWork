@@ -29,7 +29,6 @@ public class SearcherImpl implements Searcher {
 	/**
 	 * 검색 키워드와 색인 폴더를 받아 검색 처리
 	 *
-	 * @author hskim
 	 * @param indexDir
 	 * @param keyword
 	 * @return
