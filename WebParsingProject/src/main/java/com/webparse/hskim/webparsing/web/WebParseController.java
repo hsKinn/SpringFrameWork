@@ -2,6 +2,7 @@ package com.webparse.hskim.webparsing.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webparse.hskim.webparsing.service.WebParseService;
@@ -9,9 +10,9 @@ import com.webparse.hskim.webparsing.service.WebParseService;
 @Controller
 public class WebParseController {
 
-	private WebParseService parseService;
-	public void setParseService(WebParseService parseService) {
-		this.parseService = parseService;
+	private WebParseService webParseService;
+	public void setWebParseService(WebParseService webParseService) {
+		this.webParseService = webParseService;
 	}
 
 	@RequestMapping("/")
@@ -21,7 +22,13 @@ public class WebParseController {
 	
 	@RequestMapping("/getWebParsingDatas")
 	public ModelAndView getWebParsingDatas() {
-		
-		return parseService.insertDatas();
+		return webParseService.getWebParsingDatas();
 	}
+	
+	@RequestMapping("/searchingDatas")
+	public ModelAndView getSearchingDatas(@RequestParam(required=false, defaultValue="") String keyword) {
+		return webParseService.getSearchingDatas(keyword);
+	}
+	
+	
 }

@@ -19,11 +19,11 @@
 </head>
 <body>
 
-<div id="header">WEB Parsing by hskim</div>
+<div id="header">WEB Parsing by JSoup</div><br/>
 <div id="content">
 	<input id="url" type="text"
-		value="http://www.alexa.com/topsites/global" size="30"
-		readonly="readonly">
+		value="http://www.alexa.com/topsites/global;" size="30"
+		readonly="readonly"> 
 	<a href="/WebParsingProject/getWebParsingDatas">Go Web Parsing</a>
 </div>
 </body>

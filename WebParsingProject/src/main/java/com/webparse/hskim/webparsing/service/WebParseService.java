@@ -4,6 +4,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public interface WebParseService {
 
-	ModelAndView insertDatas();
+	public ModelAndView getWebParsingDatas();
+
+	public ModelAndView getSearchingDatas(String keyword);
 
 }

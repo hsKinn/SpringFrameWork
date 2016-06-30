@@ -15,20 +15,16 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="indexer"
+			class="com.webparse.hskim.lucene.index.impl.IndexerImpl" />
 
-	<bean id="webParseDAO"
-			class="com.webparse.hskim.webparsing.biz.WebParseBiz" >
-		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
-	</bean>
-
-	<bean id="webParseBiz"
-			class="com.webparse.hskim.webparsing.biz.WebParseBiz" >
-		<property name="webParseDAO" ref="webParseDAO" />
-	</bean>
+	<bean id="searcher"
+			class="com.webparse.hskim.lucene.search.impl.SearcherImpl" />
 
 	<bean id="webParseService"
-			class="com.webparse.hskim.webparsing.service.WebParseService" >
-		<property name="webParseBiz" ref="webParseBiz" />
+			class="com.webparse.hskim.webparsing.service.impl.WebParseServiceImpl" >
+		<property name="indexer" ref="indexer" />
+		<property name="searcher" ref="searcher" />
 	</bean>
 
 	<bean id="webParseController"
