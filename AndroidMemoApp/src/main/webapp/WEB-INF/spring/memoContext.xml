@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="memoDAO" class="com.ktds.hskim.memo.dao.impl.MemoDAOImpl">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+	</bean>
+
+	<bean id="memoBiz" class="com.ktds.hskim.memo.biz.impl.MemoBizImpl">
+		<property name="memoDAO" ref="memoDAO"></property>
+	</bean>
+
+	<bean id="memoService" class="com.ktds.hskim.memo.service.impl.MemoServiceImpl">
+		<property name="memoBiz" ref="memoBiz"></property>
+	</bean>
+
+
+</beans>

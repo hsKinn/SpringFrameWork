@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+					"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemoDAO">
+	<insert id="insertMemo" parameterType="MemoVO">
+		INSERT INTO MEMO_TABLE (
+									ID
+									, SUBJECT
+									, CONTENT
+									, CREATED_DATE							
+								)	
+		VALUES					(
+									#{id}
+									, #{subject}
+									, #{content}
+									, #{date}
+								)
+	</insert>
+	
+	<update id="modifyMemo" parameterType="MemoVO">
+		UPDATE	MEMO_TABLE
+		SET		IS_UPDATE = 'U'
+				, MODIFY_DATE = #{date}
+			<if test="subject != null">
+				, SUBJECT = #{subject}
+			</if>
+			<if test="content != null">
+				, CONTENT = #{content}
+			</if>
+		WHERE	ID = #{id}
+	</update>
+	
+	<update id="modifyMemo" parameterType="MemoVO">
+		UPDATE	MEMO_TABLE
+		SET		IS_DELETE = 'D'
+		WHERE	ID = #{id}
+	</update>
+	
+	<select id="getOneMemo" parameterType="_int" resultType="MemoVO">
+		SELETE	SUBJECT subject
+				, CONTENT content
+		FROM	MEMO_TABLE
+		WHERE	ID = #{id}
+	</select>
+</mapper>
